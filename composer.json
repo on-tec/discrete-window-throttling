@@ -1,0 +1,51 @@
+{
+    "name": "ontec/discrete-window-throttling",
+    "description": "Strict rate limiter with reasonable speed and memory usage for Redis 7+.",
+    "type": "library",
+    "license": "Apache-2.0",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Ontec\\Throttling\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ontec\\Throttling\\DiscreteWindowTests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "EligiusSantori",
+            "email": "lab.mirrorimage@gmail.com",
+            "homepage": "https://github.com/EligiusSantori"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": ">=10",
+        "illuminate/contracts": ">=10",
+        "nesbot/carbon": "^3.0 || ^2.0"
+    },
+    "require-dev": {
+        "illuminate/redis": ">=10",
+        "pestphp/pest": "^5.3",
+        "orchestra/testbench": "^11.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ontec\\Throttling\\DiscreteWindowServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest --parallel",
+        "test-verbose": "vendor/bin/pest -v"
+    }
+}

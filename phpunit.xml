@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+            <directory>src</directory>
+        </include>
+    </source>
+    <php>
+        <env name="REDIS_URL" value="redis://localhost:6379" />
+        <env name="REDIS_PREFIX" value="" />
+
+        <!-- Time step for test operations. 10 milliseconds by default. Increase it for slow comupters. -->
+        <env name="TIME_STEP" value="10000" />
+    </php>
+</phpunit>
