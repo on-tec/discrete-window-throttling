@@ -28,7 +28,7 @@ For languages other than PHP, you only need the [throttling.lua](throttling.lua)
 
 #### Performance / complexity
 Worst-case complexity is `frame_count + 1` operations.
-_Total_ _event count_ in the time _window_ is **cached** in the header, so when `event_count >= limit - total_count`, the check costs only a **single** operation plus **expired frame** clearing (the distance between the current time and the last check time in frames). Write operations and checks are usually fast, but when `eta > now`, using some client-side waiting mechanism is recommended.
+_Total_ _event count_ in the time _window_ is **cached** in the header, so when `event_count >= limit - total_count`, the check costs only a **single** operation plus **E** expired frames clearing (E equals the distance between the current time and the last check time in frames). Write operations and checks are usually fast, but when `eta > now`, using some client-side waiting mechanism is recommended.
 
 ## Usage
 ### Raw
