@@ -21,6 +21,13 @@
             "homepage": "https://github.com/EligiusSantori"
         }
     ],
+    "archive": {
+        "exclude": [
+            "/docs",
+            "/tests",
+            "/vendor"
+        ]
+    },
     "require": {
         "php": "^8.2",
         "illuminate/support": ">=10",
@@ -30,7 +37,8 @@
     "require-dev": {
         "illuminate/redis": ">=10",
         "pestphp/pest": "^5.3",
-        "orchestra/testbench": "^11.3"
+        "orchestra/testbench": "^11.3",
+        "spatie/invade": "^2.1"
     },
     "config": {
         "allow-plugins": {
@@ -45,7 +53,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/pest --parallel",
-        "test-verbose": "vendor/bin/pest -v"
+        "test": "vendor/bin/pest",
+        "parallel": "vendor/bin/pest --parallel",
+        "benchmark": "BENCHMARK=1 vendor/bin/pest --profile tests/Feature/SpeedTest.php"
     }
 }

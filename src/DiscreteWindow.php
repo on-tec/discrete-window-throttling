@@ -15,7 +15,7 @@ class DiscreteWindow
 	public int $default_limit;
 	public bool $relative_eta = false;
 
-	public function __construct(public readonly Connection $connection,
+	public function __construct(protected readonly Connection $connection,
 								public readonly int $frame_count,
 								CarbonInterval $frame_length,
 								int $frame_width = 0,

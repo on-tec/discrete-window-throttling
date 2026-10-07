@@ -16,6 +16,8 @@
         </include>
     </source>
     <php>
+		<env name="LOG_CHANNEL" value="stderr" />
+
         <env name="REDIS_URL" value="redis://localhost:6379" />
         <env name="REDIS_PREFIX" value="" />
 

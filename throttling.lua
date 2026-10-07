@@ -184,7 +184,7 @@ redis.register_function('dwthrottler_try', function(keys, args)
     end
 end)
 
--- FCALL dwthrottler_try 1 KEY FRAME_COUNT FRAME_LENGTH FRAME_WIDTH LIMIT EVENT_COUNT=1 => { taken, eta }
+-- FCALL dwthrottler_fill 1 KEY FRAME_COUNT FRAME_LENGTH FRAME_WIDTH LIMIT EVENT_COUNT=1 => { taken, eta }
 redis.register_function('dwthrottler_fill', function(keys, args)
     local key, frame_count, frame_length, frame_width, limit, event_count = unpack(parse_eta(keys, args))
     local eta = now() -- Just for consistency.

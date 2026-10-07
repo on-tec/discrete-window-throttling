@@ -6,6 +6,10 @@ namespace Ontec\Throttling\DiscreteWindowTests;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+	// protected function getEnvironmentSetUp($app) {
+
+	// }
+
 	protected function setUp(): void {
 		parent::setUp();
 
