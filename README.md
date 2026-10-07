@@ -79,6 +79,20 @@ php artisan vendor:publish --tag=redis-functions
 $code = file_get_contents(resource_path('redis/functions/discrete_window_throttling.lua'));
 \Illuminate\Support\Facades\Redis::function('LOAD', 'REPLACE', $code);
 ```
+### Docker
+```yaml
+services:
+  redis:
+    image: redis:8.8-alpine
+    command: redis-server --save '600 1'
+    post_start:
+      - command: sh -c 'until redis-cli info persistence | grep -q "^loading:0"; do sleep 5; done'
+      - command: sh -c 'redis-cli -x FUNCTION LOAD REPLACE < /opt/redis_dwt.lua'
+    #environment:
+    #  REDISCLI_AUTH: ${REDIS_PASSWORD}
+    volumes:
+      - ./throttling.lua:/opt/redis_dwt.lua
+```
 
 ## Reference
 ### Parameters
